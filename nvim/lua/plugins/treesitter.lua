@@ -7,7 +7,7 @@ return {
 	lazy = vim.fn.argc(-1) == 0,
 	opts = {
 		modules = {},
-		auto_install = false,
+		auto_install = true,
 		sync_install = false,
 		ignore_install = {},
 		ensure_installed = {
