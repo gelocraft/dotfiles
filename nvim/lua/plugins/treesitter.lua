@@ -3,6 +3,7 @@ return {
 	dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
 	cmd = { 'TSInstall', 'TSBufEnable', 'TSBufDisable', 'TSModuleInfo' },
 	main = 'nvim-treesitter.configs',
+	event = 'BufReadPost',
 	lazy = vim.fn.argc(-1) == 0,
 	opts = {
 		modules = {},
