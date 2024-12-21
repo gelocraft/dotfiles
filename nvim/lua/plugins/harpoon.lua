@@ -2,17 +2,21 @@ return {
 	'ThePrimeagen/harpoon',
 	branch = 'harpoon2',
 	keys = function()
-		local harpoon = require 'harpoon'
 		local toggle_list = function()
-			harpoon.ui:toggle_quick_menu(harpoon:list(), {
+			require('harpoon').ui:toggle_quick_menu(require('harpoon'):list(), {
 				border = 'rounded',
 				title_pos = 'center',
 				ui_width_ratio = 0.50,
 			})
 		end
-		local add_file = function() harpoon:list():add() end
+		local add_file = function()
+			return '<cmd>lua require("harpoon"):list():add()<cr>'
+		end
 		local select_file = function(number)
-			return function() harpoon:list():select(number) end
+			return string.format(
+				'<cmd>lua require("harpoon"):list():select(%d)<cr>',
+				number
+			)
 		end
 		return {
 			{ '<leader>ha', add_file, desc = 'Harpoon Add File' },
