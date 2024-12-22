@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# shellcheck disable=SC2181
+
 FZF_DEFAULT_OPTS="--border-label=' tmux-sessionizer '"
 
 directories="$(find "$HOME" -maxdepth 3 -type d)"
