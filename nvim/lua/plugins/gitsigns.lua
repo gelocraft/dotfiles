@@ -76,8 +76,8 @@ return {
 			keymap(
 				'n',
 				'<leader>gr',
-				'<cmd>Gitsigns reset_buffer<cr>',
-				{ desc = '[G]it [R]eset Current Buffer' }
+				'<cmd>Gitsigns reset_hunk<cr>',
+				{ desc = '[G]it [R]eset Current Hunk' }
 			)
 			keymap(
 				'n',
