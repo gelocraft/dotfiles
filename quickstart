@@ -1,6 +1,0 @@
-#!/bin/sh
-
-[ -d ~/.dotfiles ] && echo "'$HOME/.dotfiles' already exists" && exit 0
-# only clones the latest commit history
-git clone --depth 1 https://github.com/geloman-likes-rust/dotfiles ~/.dotfiles
-~/.dotfiles/setup.sh
