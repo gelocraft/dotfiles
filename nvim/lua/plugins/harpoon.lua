@@ -9,14 +9,9 @@ return {
 				ui_width_ratio = 0.50,
 			})
 		end
-		local add_file = function()
-			return '<cmd>lua require("harpoon"):list():add()<cr>'
-		end
+		local add_file = function() require('harpoon'):list():add() end
 		local select_file = function(number)
-			return string.format(
-				'<cmd>lua require("harpoon"):list():select(%d)<cr>',
-				number
-			)
+			return function() require('harpoon'):list():select(number) end
 		end
 		return {
 			{ '<leader>ha', add_file, desc = 'Harpoon Add File' },
