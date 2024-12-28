@@ -18,6 +18,8 @@ return {
 			'query',
 			'regex',
 			'yaml',
+			'markdown',
+			'markdown_inline',
 		},
 		highlight = { enable = true },
 		indent = { enable = true, disable = { 'python', 'html' } },
