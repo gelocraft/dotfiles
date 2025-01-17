@@ -1,5 +1,7 @@
 return {
 	'mfussenegger/nvim-lint',
+	lazy = vim.fn.argc(-1) == 0,
+	event = 'BufReadPost',
 	config = function()
 		require('lint').linters_by_ft = {
 			sh = { 'shellcheck' },
@@ -12,9 +14,8 @@ return {
 			typescriptreact = { 'eslint' },
 			['yaml.ansible'] = { 'ansible_lint' },
 		}
-	end,
 
-	init = function()
+		-- PerformLinting
 		vim.api.nvim_create_autocmd(
 			{ 'BufReadPost', 'BufNewFile', 'ModeChanged', 'BufWritePost' },
 			{
