@@ -42,6 +42,16 @@ local function highlight_all()
 
 	-- TROUBLE HIGHLIGHTS
 	highlight('TroublePreview', { reverse = true })
+
+	-- FUGITIVE HIGHLIGHTS
+	highlight('fugitiveHeader', { link = 'diffLine' })
+	highlight('fugitiveSymbolicRef', { link = 'diffCommon' })
+	highlight('fugitiveStagedHeading', { link = 'diffAdded' })
+	highlight('fugitiveStagedModifier', { link = 'diffAdded' })
+	highlight('fugitiveUntrackedHeading', { link = 'diffFile' })
+	highlight('fugitiveUntrackedModifier', { link = 'diffFile' })
+	highlight('fugitiveUnstagedHeading', { link = 'diffChanged' })
+	highlight('fugitiveUnstagedModifier', { link = 'diffChanged' })
 end
 
 highlight_all()
