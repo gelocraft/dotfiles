@@ -22,10 +22,16 @@ keymap('n', '[d', vim.diagnostic.goto_prev, { desc = 'Previous Diagnostic' })
 -- toggle lazy profiler
 keymap('n', '<leader>lp', '<cmd>Lazy profile<cr>', { desc = 'Lazy Profile' })
 
--- keymap for cnext and cprev
+-- quickfixlist keymaps
 keymap('n', '<c-n>', '<cmd>cnext<cr>', { desc = 'cnext' })
 keymap('n', '<c-p>', '<cmd>cprev<cr>', { desc = 'cprevious' })
 keymap('n', '<c-q>', '<cmd>copen<cr>', { desc = 'copen' })
+keymap(
+	'n',
+	'<leader>q',
+	vim.diagnostic.setqflist,
+	{ desc = 'Open Diagnostics with QuickFixList' }
+)
 
 -- toggle statusline
 keymap(
