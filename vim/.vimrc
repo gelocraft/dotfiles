@@ -6,6 +6,7 @@ set tabstop=4 shiftwidth=4 softtabstop=4
 set hidden noerrorbells nowrap incsearch noshowmode
 set timeout timeoutlen=300 updatetime=250 history=200
 set expandtab autoindent smarttab smartindent smartcase autowrite 
+let g:netrw_banner = 0
 
 
 " Set cursor shape for different modes
