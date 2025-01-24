@@ -75,6 +75,7 @@ return {
 			},
 
 			sources = {
+				{ name = 'lazydev', group_index = 0 },
 				{ name = 'nvim_lsp', max_item_count = 8 },
 				{ name = 'luasnip', max_item_count = 4 },
 				{ name = 'buffer', max_item_count = 4 },
