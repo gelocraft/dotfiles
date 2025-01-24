@@ -23,7 +23,7 @@ vim.g.netrw_banner = 0 -- disable explorer banner
 vim.o.hlsearch = true
 
 -- sync clipboard between os and neovim.
-vim.o.clipboard = 'unnamedplus'
+vim.schedule(function() vim.opt.clipboard = 'unnamedplus' end)
 
 -- enable break indent
 vim.o.breakindent = true
