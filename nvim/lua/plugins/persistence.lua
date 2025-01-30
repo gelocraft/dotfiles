@@ -3,12 +3,12 @@ return {
 	opts = {},
 	keys = {
 		{
-			'<leader>rs',
+			'<leader>Rs',
 			function() require('persistence').load() end,
 			desc = 'Restore Session',
 		},
 		{
-			'<leader>rl',
+			'<leader>Rl',
 			function() require('persistence').load { last = true } end,
 			desc = 'Restore Last Session',
 		},
