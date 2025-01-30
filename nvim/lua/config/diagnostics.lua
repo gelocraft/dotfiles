@@ -1,17 +1,17 @@
--- Default DiagnosticSign
-local signs =
-	{ Error = '󰅚 ', Warn = '󰀪 ', Hint = '󰌶 ', Info = '󰋽 ' }
-for type, icon in pairs(signs) do
-	local hl = 'DiagnosticSign' .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl })
-end
-
 -- Diagnostic Config
 vim.diagnostic.config {
-	signs = true,
+	severity_sort = true,
 	float = { border = 'rounded' },
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = '󰅚 ',
+			[vim.diagnostic.severity.WARN] = '󰀪 ',
+			[vim.diagnostic.severity.INFO] = '󰋽 ',
+			[vim.diagnostic.severity.HINT] = '󰌶 ',
+		},
+	},
 	virtual_text = {
-		prefix = '',
+		source = 'if_many',
 		format = function(diagnostic)
 			local diagnostic_message = {
 				[vim.diagnostic.severity.ERROR] = '󰅚 ' .. diagnostic.message,
