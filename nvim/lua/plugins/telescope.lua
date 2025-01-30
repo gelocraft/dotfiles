@@ -68,6 +68,11 @@ return {
 				cmd 'Telescope diagnostics',
 				desc = '[W]orkspace [D]iagnostics',
 			},
+			{
+				'<leader>lr',
+				cmd 'Telescope lsp_references',
+				desc = '[L]sp [R]eferences',
+			},
 
 			-- COLORSCHEMES AND HIGHLIGHTS
 			{
