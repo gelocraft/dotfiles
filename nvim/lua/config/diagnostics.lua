@@ -13,6 +13,7 @@ vim.diagnostic.config {
 	} or {},
 	virtual_text = {
 		source = 'if_many',
+		spacing = 1,
 		format = function(diagnostic)
 			local diagnostic_message = {
 				[vim.diagnostic.severity.ERROR] = diagnostic.message,
