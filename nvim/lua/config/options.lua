@@ -1,3 +1,6 @@
+-- I set this to `true` when I have `nerd font` installed
+vim.g.have_nerd_font = true
+
 -- no showmode
 vim.o.showmode = false
 
