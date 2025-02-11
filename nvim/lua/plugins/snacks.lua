@@ -1,7 +1,7 @@
 return {
 	'folke/snacks.nvim',
-	event = 'BufReadPost',
-	-- lazy = vim.fn.argc(-1) == 0,
+	event = { 'BufReadPost', 'BufNewFile' },
+	lazy = vim.fn.argc(-1) == 0,
 	opts = {
 		dim = {},
 		indent = {},
