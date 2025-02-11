@@ -20,9 +20,20 @@ return {
 			lualine_c = {
 				'%=',
 				{
-					'filename',
-					on_click = function() print(vim.fn.expand '%:p') end,
-					color = 'lualine_b_normal',
+					function() return vim.version() end,
+					color = function()
+						local modes = {
+							['i'] = 'lualine_b_insert',
+							['n'] = 'lualine_b_normal',
+							['v'] = 'lualine_b_visual',
+							['V'] = 'lualine_b_visual',
+							['\x16'] = 'lualine_b_visual',
+							['R'] = 'lualine_b_replace',
+							['c'] = 'lualine_b_command',
+							['t'] = 'lualine_b_terminal',
+						}
+						return modes[vim.fn.mode()]
+					end,
 					separator = { left = '', right = '' },
 				},
 			},
