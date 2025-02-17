@@ -1,26 +1,40 @@
 return {
 	'nvim-lualine/lualine.nvim',
+	enabled = true,
 	event = 'VeryLazy',
 	opts = {
 		options = {
-			icons_enabled = true,
-			theme = 'auto',
 			globalstatus = true,
-			section_separators = { left = '', right = '' },
-			-- component_separators = { left = '', right = '' },
-			-- component_separators = { left = '', right = '' },
+			icons_enabled = vim.g.have_nerd_font,
+			theme = 'auto',
 			component_separators = { left = '│', right = '│' },
-			-- component_separators = { left = '┊', right = '' },
-			-- section_separators = { left = '', right = '' },
-			-- disabled_filetypes = { 'NvimTree' },
+			section_separators = vim.g.have_nerd_font
+					and { left = '', right = '' }
+				or { left = '', right = '' },
 		},
 		sections = {
-			lualine_a = { { 'mode', separator = { left = '', right = '' } } },
+			lualine_a = {
+				{
+					'mode',
+					separator = {
+						left = vim.g.have_nerd_font and '' or '',
+						right = '',
+					},
+				},
+			},
 			lualine_b = { 'branch', 'diff', 'diagnostics' },
 			lualine_c = {
 				'%=',
 				{
-					function() return vim.version() end,
+					function()
+						local lsp_clients = vim.lsp.get_clients { bufnr = 0 }
+						if lsp_clients[1] == nil then return '' end
+						local active_lsp = {}
+						for _, lsp in ipairs(lsp_clients) do
+							table.insert(active_lsp, lsp.name)
+						end
+						return table.concat(active_lsp, ' │ ')
+					end,
 					color = function()
 						local modes = {
 							['i'] = 'lualine_b_insert',
@@ -34,34 +48,33 @@ return {
 						}
 						return modes[vim.fn.mode()]
 					end,
-					separator = { left = '', right = '' },
+					separator = vim.g.have_nerd_font
+							and { left = '', right = '' }
+						or { left = ' ', right = ' ' },
 				},
 			},
 			lualine_x = { 'filetype' },
-			lualine_y = { 'progress' },
+			lualine_y = {
+				{
+					function()
+						return string.format(
+							'%s %s',
+							vim.g.have_nerd_font and '' or 'nvim',
+							vim.version()
+						)
+					end,
+				},
+				'progress',
+			},
 			lualine_z = {
-				{ 'location', separator = { left = '', right = '' } },
-			},
-		},
-		inactive_sections = {
-			lualine_a = {},
-			lualine_b = {},
-			lualine_c = {
-				'%=',
 				{
-					'branch',
-					color = 'lualine_b_normal',
-					separator = { left = '', right = '' },
-				},
-				{
-					'filename',
-					color = 'lualine_a_normal',
-					separator = { left = '', right = '' },
+					'location',
+					separator = {
+						left = '',
+						right = vim.g.have_nerd_font and '' or '',
+					},
 				},
 			},
-			lualine_x = {},
-			lualine_y = {},
-			lualine_z = {},
 		},
 	},
 }
