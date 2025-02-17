@@ -1,4 +1,7 @@
--- I set this to `true` when I have `nerd font` installed
+-- local & global leader keys
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 vim.g.have_nerd_font = true
 
 -- no showmode
