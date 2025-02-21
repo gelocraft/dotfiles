@@ -1,5 +1,6 @@
 return {
 	'neovim/nvim-lspconfig',
+	enabled = not vim.version.ge(vim.version(), '0.11'),
 	event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
 	config = function()
 		require('lspconfig.ui.windows').default_options.border = 'rounded'
