@@ -14,6 +14,7 @@ return {
 					'${3rd}/luv/library',
 				},
 			},
+			hint = { enable = true },
 		},
 	},
 }
