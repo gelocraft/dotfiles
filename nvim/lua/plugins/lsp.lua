@@ -1,6 +1,6 @@
 return {
 	'neovim/nvim-lspconfig',
-	enabled = vim.version.lt(vim.version(), '0.11.0-dev'),
+	enabled = not vim.g.enable_native_lsp,
 	event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
 	config = function()
 		require('lspconfig.ui.windows').default_options.border = 'rounded'
@@ -19,6 +19,13 @@ return {
 		lspconfig.lua_ls.setup {
 			cmd = { 'lua-language-server' },
 			capabilities = capabilities,
+			settings = {
+				Lua = {
+					hint = {
+						enable = true,
+					},
+				},
+			},
 		}
 
 		--[[ TERRAFORM LSP ]]
