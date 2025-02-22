@@ -26,7 +26,10 @@ vim.api.nvim_create_autocmd('InsertLeave', {
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
-	group = vim.api.nvim_create_augroup('geloman/LspAttach', { clear = true }),
+	group = vim.api.nvim_create_augroup(
+		'gelocraft/LspAttach',
+		{ clear = true }
+	),
 	callback = function(event)
 		local keymap = function(keys, func, desc)
 			if desc then desc = 'LSP: ' .. desc end
