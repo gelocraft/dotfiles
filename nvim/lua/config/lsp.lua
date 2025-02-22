@@ -9,6 +9,7 @@ if vim.version.ge(vim.version(), '0.11.0-dev') then
 	vim.lsp.enable({
 		'luals',
 		'gopls',
+		'pyright',
 		'terraformls',
 	}, vim.g.enable_native_lsp)
 end
