@@ -3,6 +3,8 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = true
+vim.g.enable_native_lsp = vim.version.ge(vim.version(), '0.11.0-dev')
+vim.g.lazydev_enabled = not vim.g.enable_native_lsp
 
 -- no showmode
 vim.o.showmode = false
