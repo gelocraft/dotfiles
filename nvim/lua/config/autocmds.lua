@@ -31,6 +31,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		{ clear = true }
 	),
 	callback = function(event)
+		local toggle_inlay_hint = function()
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+		end
 		local keymap = function(keys, func, desc)
 			if desc then desc = 'LSP: ' .. desc end
 			vim.keymap.set('n', keys, func, { buffer = event.buf, desc = desc })
@@ -43,6 +46,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		keymap('gt', vim.lsp.buf.type_definition, '[G]oto [T]ype Definition')
 		keymap('K', vim.lsp.buf.hover, 'Hover Documentation')
 		keymap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+		keymap('<leader>il', toggle_inlay_hint, 'Toggle Inlay Hint')
 
 		-- rounded border for textDocument/hover
 		vim.lsp.handlers['textDocument/hover'] =
