@@ -1,0 +1,10 @@
+maximize = true
+
+fullscreen = true
+
+background-opacity = 0.85
+
+font-size = 20
+font-family = "Jetbrains Mono"
+
+mouse-hide-while-typing = true
