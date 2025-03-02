@@ -9,7 +9,7 @@ mkdir -p ~/.ssh
 read -s -p "vault password: " vault_password
 echo
 
-[ -f ~/.ssh/signingkey ] || ansible-vault decrypt ~/.dotfiles/ansible/vault/signingkey/signingkey --output ~/.ssh/signingkey --vault-password-file=<(echo "$vault_password")
-[ -f ~/.ssh/signingkey.pub ] || ansible-vault decrypt ~/.dotfiles/ansible/vault/signingkey/signingkey.pub --output ~/.ssh/signingkey.pub --vault-password-file=<(echo "$vault_password")
-[ -f ~/.ssh/allowedsigners ] || ansible-vault decrypt ~/.dotfiles/ansible/vault/signingkey/allowedsigners --output ~/.ssh/allowedsigners --vault-password-file=<(echo "$vault_password")
-[ -f ~/.ssh/github_ed25519 ] || ansible-vault decrypt ~/.dotfiles/ansible/vault/github.vault --output ~/.ssh/github_ed25519 --vault-password-file=<(echo "$vault_password")
+[ -f ~/.ssh/signingkey ] || ansible-vault decrypt ~/.dotfiles/ansible/vault/signingkey/signingkey --output ~/.ssh/signingkey --vault-password-file=<(echo "$vault_password") || exit 1
+[ -f ~/.ssh/signingkey.pub ] || ansible-vault decrypt ~/.dotfiles/ansible/vault/signingkey/signingkey.pub --output ~/.ssh/signingkey.pub --vault-password-file=<(echo "$vault_password") || exit 1
+[ -f ~/.ssh/allowedsigners ] || ansible-vault decrypt ~/.dotfiles/ansible/vault/signingkey/allowedsigners --output ~/.ssh/allowedsigners --vault-password-file=<(echo "$vault_password") || exit 1
+[ -f ~/.ssh/github_ed25519 ] || ansible-vault decrypt ~/.dotfiles/ansible/vault/github.vault --output ~/.ssh/github_ed25519 --vault-password-file=<(echo "$vault_password") || exit 1
