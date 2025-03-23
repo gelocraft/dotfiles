@@ -78,3 +78,6 @@ compdef _dotnet_zsh_complete dotnet
 
 # starship configuration
 [ -n "$(command -v starship)" ] && eval "$(starship init zsh)"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
