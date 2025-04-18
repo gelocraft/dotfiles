@@ -107,6 +107,7 @@ alias \
   mem="neofetch memory" \
   cpu="neofetch cpu --cpu_temp" \
   disk="neofetch disk" \
+  batt="neofetch battery" \
   uptime="neofetch uptime" \
   ndoe="node" \
 
