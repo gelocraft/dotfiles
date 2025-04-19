@@ -31,7 +31,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec kitty
 
 # Screenshots
-bindsym Print exec --no-startup-id maim "$HOME/.personal/screenshots/Screenshot from $(date +'%Y-%m-%d at %H:%M:%S').png"
+bindsym Print exec --no-startup-id maim "$HOME/Pictures/screenshots/Screenshot from $(date +'%Y-%m-%d at %H:%M:%S').png"
 
 # always open in specific workspace
 assign [class="Code"] 1
@@ -39,6 +39,7 @@ assign [class="kitty"] 1
 assign [class="Aseprite"] 1
 assign [class="Nautilus"] 2
 assign [class="Google-chrome"] 2
+assign [class="Brave-browser"] 2
 assign [class="Postman"] 3
 assign [class="discord"] 3
 assign [class="steam"] 4
@@ -147,6 +148,7 @@ bar {
 
 # startup scripts
 exec --no-startup-id compton
+exec --no-startup-id picom --experimental-backends --config ~/.config/picom.conf
 
 # defaults
 default_border pixel 3
