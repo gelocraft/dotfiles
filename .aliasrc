@@ -117,6 +117,6 @@ alias \
   nwk="nvim-work" \
   suspend="systemctl suspend" \
   restart="systemctl reboot" \
-  i3lock="i3lock -c 1A212E" \
+  i3lock="i3lock -c 1F1F28" \
   reckey="screenkey -s small -t 0.25 --opacity 0.5 -p fixed -g 24%x7%-2%-10% &" \
   sb="setbg" \
