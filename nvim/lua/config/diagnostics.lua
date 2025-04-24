@@ -1,6 +1,7 @@
 -- Diagnostic Config
 vim.diagnostic.config {
 	severity_sort = true,
+	jump = { float = false },
 	float = { border = 'rounded', source = 'if_many' },
 	underline = { severity = vim.diagnostic.severity.ERROR },
 	signs = vim.g.have_nerd_font and {
@@ -11,8 +12,21 @@ vim.diagnostic.config {
 			[vim.diagnostic.severity.HINT] = '󰌶 ',
 		},
 	} or {},
-	virtual_text = {
+	virtual_lines = vim.g.diagnostic.virtual_lines.enabled and {
+		current_line = true,
+		format = function(diagnostic)
+			local diagnostic_message = {
+				[vim.diagnostic.severity.ERROR] = '󰅚 ' .. diagnostic.message,
+				[vim.diagnostic.severity.WARN] = '󰀪 ' .. diagnostic.message,
+				[vim.diagnostic.severity.INFO] = '󰋽 ' .. diagnostic.message,
+				[vim.diagnostic.severity.HINT] = '󰌶 ' .. diagnostic.message,
+			}
+			return diagnostic_message[diagnostic.severity]
+		end,
+	} or nil,
+	virtual_text = vim.g.diagnostic.virtual_text.enabled and {
 		source = 'if_many',
+		current_line = true,
 		spacing = 1,
 		format = function(diagnostic)
 			local diagnostic_message = {
@@ -23,5 +37,5 @@ vim.diagnostic.config {
 			}
 			return diagnostic_message[diagnostic.severity]
 		end,
-	},
+	} or nil,
 }
