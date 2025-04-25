@@ -139,23 +139,22 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
-        position top
-        workspace_min_width 20
-        colors {
-                background #1A212E
-                statusline #00FFAB
-                separator #93a4c3
-                inactive_workspace #93a4c3 #93a4c3 #1A212E
-                focused_workspace #00FFAB #00FFAB #1A212E
-                urgent_workspace #f65866 #f65866 #1A212E
-                binding_mode #efbd5d #efbd5d #1A212E
-        }
+    status_command i3status
+    position top
+    workspace_min_width 25
+    colors {
+        # separator #93a4c3
+        background #2a2a37
+        statusline #00FFAB
+        inactive_workspace #93a4c3 #93a4c3 #1F1F28
+        focused_workspace #00FFAB #00FFAB #1F1F28
+        urgent_workspace #f65866 #f65866 #1F1F28
+        binding_mode #efbd5d #efbd5d #1F1F28
+    }
 }
 
 # startup scripts
 exec --no-startup-id compton
-exec --no-startup-id picom --experimental-backends --config ~/.config/picom.conf
 
 # defaults
 default_border pixel 3
