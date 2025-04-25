@@ -3,7 +3,7 @@
 configuration {
     display-drun: " ";
     display-window: " ";
-    font: "Hack Nerd Font 30";
+    font: "JetBrainsMono NF 30";
     modi: "window,drun";
     lines: 5;
     show-icons: true;
