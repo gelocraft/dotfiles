@@ -1,29 +1,30 @@
 general {
-        colors = true
-        interval = 1
-        separator = "|"
-        color_bad = "#f65866"
-        color_good = "#00FFAB"
-        color_degraded = "#efbd5d"
+    output_format = "i3bar"
+    colors = true
+    interval = 1
+    separator = "|"
+    color_bad = "#f65866"
+    color_good = "#00FFAB"
+    color_degraded = "#efbd5d"
 }
 
+order += "tztime local"
 order += "wireless _first_"
 # order += "ethernet _first_"
 order += "cpu_temperature 0"
 order += "cpu_usage"
 order += "memory"
 order += "volume master"
-order += "tztime local"
 order += "battery all"
 
 wireless _first_ {
-        format_up = "   "
-        format_down = " 󰤮  "
+    format_up = "   "
+    format_down = " 󰤮  "
 }
 
 ethernet _first_ {
-        format_up = "  "
-        format_down = " 󰤮 "
+    format_up = "  "
+    format_down = " 󰤮 "
 }
 
 cpu_temperature 0 {
@@ -33,10 +34,10 @@ cpu_temperature 0 {
 }
 
 memory {
-        format = " %percentage_used  "
-        format_degraded = " %percentage_used  "
-        threshold_degraded = "30%"
-        threshold_critical = "15%"
+    format = " %percentage_used  "
+    format_degraded = " %percentage_used  "
+    threshold_degraded = "30%"
+    threshold_critical = "15%"
 }
 
 cpu_usage {
@@ -48,8 +49,10 @@ cpu_usage {
 }
 
 tztime local {
-        # format = " %H:%M %m-%d-%Y "
-        format = " %H:%M "
+    format = " %b %d  %H:%M "
+    align = "center"
+    separator = false
+    min_width = 700
 }
 
 volume master {
@@ -60,13 +63,14 @@ volume master {
 }
 
 battery all {
-       format = " %status%percentage "
-       status_chr = ""
-       status_bat = " "
-       status_unk = ""
-       status_full = " "
-       low_threshold = 30
-       last_full_capacity = true
-       format_percentage = "%.00f%s"
+    format = " %status%percentage "
+    status_chr = ""
+    # status_bat = " "
+    status_bat = " "
+    status_unk = ""
+    status_full = " "
+    low_threshold = 30
+    last_full_capacity = true
+    format_percentage = "%.00f%s"
 }
 
