@@ -10,6 +10,7 @@ if vim.g.enable_native_lsp then
 		'luals',
 		'gopls',
 		'pyright',
+		'tsserver',
 		'terraformls',
 	}
 end
