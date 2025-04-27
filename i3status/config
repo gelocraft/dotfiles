@@ -49,7 +49,7 @@ cpu_usage {
 }
 
 tztime local {
-    format = " %b %d  %H:%M "
+    format = " %B %d, %A  %H:%M "
     align = "center"
     separator = false
     min_width = 700
