@@ -5,6 +5,7 @@ return {
 	settings = {
 		Lua = {
 			hint = { enable = true },
+			format = { enable = false },
 			telemetry = { enable = false },
 			runtime = { version = 'LuaJIT' },
 			workspace = {
