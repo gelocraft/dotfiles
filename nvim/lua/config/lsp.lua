@@ -9,6 +9,7 @@ if vim.g.enable_native_lsp then
 	vim.lsp.enable {
 		'luals',
 		'gopls',
+		'cssls',
 		'pyright',
 		'tsserver',
 		'terraformls',
