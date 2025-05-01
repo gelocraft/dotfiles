@@ -19,6 +19,13 @@ return {
 			-- RESUME PREVIOUS SEARCH
 			{ '<leader>rs', cmd 'Telescope resume', desc = 'Telescope resume' },
 
+			-- MY DOTFILES
+			{
+				'<leader>cd',
+				cmd 'Telescope find_files cwd=~/.dotfiles',
+				desc = 'configure dotfiles',
+			},
+
 			-- NEOVIM CONFIG FILES
 			{
 				'<leader>cn',
