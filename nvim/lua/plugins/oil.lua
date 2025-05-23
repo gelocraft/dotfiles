@@ -1,8 +1,9 @@
 return {
 	'stevearc/oil.nvim',
+	enabled = vim.g.file_explorer == 'oil.nvim',
 	dependencies = { 'nvim-tree/nvim-web-devicons' },
 	cmd = { 'Oil' },
-	keys = { { '<leader>e', '<cmd>Oil<cr>', desc = 'Open Oil' } },
+	keys = { { '<leader>e', '<cmd>Oil<cr>', desc = 'File Explorer' } },
 	opts = {
 		view_options = { show_hidden = true },
 		default_file_explorer = false,
