@@ -25,6 +25,6 @@ return {
 			lsp_fallback = true,
 		},
 
-		notify_on_error = false,
+		notify_on_error = true,
 	},
 }
