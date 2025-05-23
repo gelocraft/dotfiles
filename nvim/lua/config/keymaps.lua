@@ -9,16 +9,6 @@ local toggle_numberln = function()
 	vim.cmd 'set relativenumber!'
 end
 
--- diagnostics keymaps
-keymap(
-	'n',
-	'<C-w>d',
-	vim.diagnostic.open_float,
-	{ desc = 'Open Floating Diagnostic' }
-)
-keymap('n', ']d', vim.diagnostic.goto_next, { desc = 'Next Diagnostic' })
-keymap('n', '[d', vim.diagnostic.goto_prev, { desc = 'Previous Diagnostic' })
-
 -- toggle lazy profiler
 keymap('n', '<leader>lp', '<cmd>Lazy profile<cr>', { desc = 'Lazy Profile' })
 
@@ -66,6 +56,11 @@ keymap(
 -- move cursor to bottom and center the screen
 keymap('n', 'L', 'Lzz')
 keymap('n', 'G', 'Gzz')
+
+keymap('n', '<leader>ds', function()
+	local state = vim.diagnostic.is_enabled()
+	vim.diagnostic.enable(not state)
+end, { desc = 'Toggle Diagnostics' })
 
 -- navigate across wrapped lines
 keymap({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
