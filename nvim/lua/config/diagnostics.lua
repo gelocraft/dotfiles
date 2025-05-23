@@ -13,7 +13,7 @@ vim.diagnostic.config {
 		},
 	} or {},
 	virtual_lines = vim.g.diagnostic.virtual_lines.enabled and {
-		current_line = true,
+		current_line = false,
 		format = function(diagnostic)
 			local diagnostic_message = {
 				[vim.diagnostic.severity.ERROR] = '󰅚 ' .. diagnostic.message,
@@ -26,7 +26,7 @@ vim.diagnostic.config {
 	} or nil,
 	virtual_text = vim.g.diagnostic.virtual_text.enabled and {
 		source = 'if_many',
-		current_line = true,
+		current_line = false,
 		spacing = 1,
 		format = function(diagnostic)
 			local diagnostic_message = {
