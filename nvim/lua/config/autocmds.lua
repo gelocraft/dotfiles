@@ -30,41 +30,74 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		'gelocraft/LspAttach',
 		{ clear = true }
 	),
-	callback = function(event)
+	callback = function(args)
 		local toggle_inlay_hint = function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 		end
+		local hover_definition = function(opts)
+			opts = opts or {}
+			return function() vim.lsp.buf.hover(opts) end
+		end
 		local keymap = function(keys, func, desc)
 			if desc then desc = 'LSP: ' .. desc end
-			vim.keymap.set('n', keys, func, { buffer = event.buf, desc = desc })
+			vim.keymap.set('n', keys, func, { buffer = args.buf, desc = desc })
 		end
-		keymap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-		keymap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-		keymap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-		keymap('<leader>lr', vim.lsp.buf.references, '[L]sp [R]eferences')
-		keymap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
 		keymap('gt', vim.lsp.buf.type_definition, '[G]oto [T]ype Definition')
-		keymap('K', vim.lsp.buf.hover, 'Hover Documentation')
-		keymap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-		keymap('<leader>il', toggle_inlay_hint, 'Toggle Inlay Hint')
 
-		-- rounded border for textDocument/hover
-		vim.lsp.handlers['textDocument/hover'] =
-			vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
-		vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-			vim.lsp.handlers.signature_help,
-			{ border = 'rounded' }
-		)
+		local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+		if client:supports_method 'textDocument/implementation' then
+			keymap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+		end
 
-		local client = vim.lsp.get_client_by_id(event.data.client_id)
-		if client and client.server_capabilities.documentHighlightProvider then
+		if client:supports_method 'textDocument/completion' then
+			-- stylua: ignore
+			-- vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+		end
+
+		if client:supports_method 'textDocument/inlayHint' then
+			keymap('<leader>il', toggle_inlay_hint, 'Toggle Inlay Hint')
+		end
+
+		if client:supports_method 'textDocument/definition' then
+			keymap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+		end
+
+		if client:supports_method 'textDocument/codeAction' then
+			keymap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+		end
+
+		if client:supports_method 'textDocument/hover' then
+			keymap(
+				'K',
+				hover_definition {
+					border = 'sharp',
+					title = 'hover definition',
+					title_pos = 'center',
+				},
+				'Hover Documentation'
+			)
+		end
+
+		if client:supports_method 'textDocument/references' then
+			keymap('<leader>lr', vim.lsp.buf.references, '[L]sp [R]eferences')
+		end
+
+		if client:supports_method 'textDocument/rename' then
+			keymap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+		end
+
+		if client:supports_method 'textDocument/signatureHelp' then
+			keymap('<C-k>', vim.lsp.buf.signature_help, 'Signature Help')
+		end
+
+		if client.server_capabilities.documentHighlightProvider then
 			vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-				buffer = event.buf,
+				buffer = args.buf,
 				callback = vim.lsp.buf.document_highlight,
 			})
 
 			vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-				buffer = event.buf,
+				buffer = args.buf,
 				callback = vim.lsp.buf.clear_references,
 			})
 		end
