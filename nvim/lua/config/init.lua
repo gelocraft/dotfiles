@@ -1,8 +1,0 @@
-require 'config.options'
-require 'config.autocmds'
-require 'config.keymaps'
-require 'config.highlights'
-require 'config.diagnostics'
-require 'config.neovide'
-require 'config.lsp'
-require 'config.lazy'
