@@ -60,7 +60,7 @@ return {
 			-- REGULAR EXPRESSIONS
 			{
 				'<leader>lg',
-				cmd 'Telescope live_grep',
+				require 'custom.telescope.live_grep',
 				desc = '[L]ive [G]rep',
 			},
 			{
@@ -258,11 +258,11 @@ return {
 					height = 0.95,
 					width = 0.95,
 					horizontal = {
-						preview_width = 0.55,
-						preview_cutoff = 100,
+						preview_width = 0.50,
+						preview_cutoff = 20,
 					},
 					vertical = {
-						preview_cutoff = 20,
+						preview_cutoff = 40,
 						prompt_position = 'bottom',
 					},
 				},
