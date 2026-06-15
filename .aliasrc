@@ -2,121 +2,124 @@
 
 # navigation aliases
 alias \
-  ..="cd .." \
-  ...="cd ../.." \
-  ....="cd ../../.." \
-  .....="cd ../../../.." \
+    ..="cd .." \
+    ...="cd ../.." \
+    ....="cd ../../.." \
+    .....="cd ../../../.."
 
 # terraform aliases
 alias \
-  tff="terraform fmt" \
-  tfi="terraform init" \
-  tfa="terraform apply" \
-  tfd="terraform destroy" \
-  tfr="terraform refresh" \
-  tfp="terraform plan" \
+    tff="terraform fmt" \
+    tfi="terraform init" \
+    tfa="terraform apply" \
+    tfd="terraform destroy" \
+    tfr="terraform refresh" \
+    tfp="terraform plan"
 
 # tmux aliases
 alias \
-  tls="tmux ls" \
-  tks="tmux kill-server" \
-  tds="tmux-db-session" \
-  ta="tmux a" \
-  td="tmux detach" \
-  tx="tmux-sessionizer" \
-  tns="tmux new -s" \
-  trn="tmux rename-session -t" \
+    tls="tmux ls" \
+    tks="tmux kill-server" \
+    tds="tmux-db-session" \
+    ta="tmux a" \
+    td="tmux detach" \
+    tx="tmux-sessionizer" \
+    tns="tmux new -s" \
+    trn="tmux rename-session -t"
 
 # handy scripts
 alias \
-  ew="edit-tmux-workspace" \
-  mp="monitor-process" \
-  vr="vim-recent" \
-  dbp="db-port" \
-  dce="db-container-env" \
-  dbv="db-container-volume" \
-  ff="find-files" \
-  fvi="find-files" \
-  frm="fast-remove" \
-  lg="live-grep" \
-  drt="dirty" \
-  gs="git-status" \
-  gf="git-files" \
-  ga="git-add" \
-  gu="git-unstage-file" \
-  gr="git-restore" \
-  gco="git-checkout" \
-  guc="git-unpushed-commits" \
-  gwt="git-worktree-tool" \
-  guf="git-untracked-files" \
-  gmf="git-modified-files" \
-  grd="git-restore-deleted" \
-  grm="git-restore-modified" \
-  gsa="git-stash-apply" \
-  gulc="git-undo-last-commit" \
-  gai="git-add-interactive" \
-  grl="git-reflog" \
-  glf="git-log-file" \
-  sws="switch_shell" \
+    ew="edit-tmux-workspace" \
+    mp="monitor-process" \
+    vr="vim-recent" \
+    dbp="db-port" \
+    dce="db-container-env" \
+    dbv="db-container-volume" \
+    ff="find-files" \
+    fvi="find-files" \
+    frm="fast-remove" \
+    lg="live-grep" \
+    drt="dirty" \
+    gs="git-status" \
+    gf="git-files" \
+    ga="git-add" \
+    gu="git-unstage-file" \
+    gr="git-restore" \
+    gco="git-checkout" \
+    guc="git-unpushed-commits" \
+    gwt="git-worktree-tool" \
+    guf="git-untracked-files" \
+    gmf="git-modified-files" \
+    grd="git-restore-deleted" \
+    grm="git-restore-modified" \
+    gsa="git-stash-apply" \
+    gulc="git-undo-last-commit" \
+    gai="git-add-interactive" \
+    grl="git-reflog" \
+    glf="git-log-file" \
+    sws="switch_shell"
 
 # version control aliases
 alias \
-  glo="git log --format=\"format:%C(magenta)%h%C(green)%d %C(reset)%s %C(cyan)(%cr) %C(blue)%an\"" \
-  gb="git branch" \
-  gcm="git commit -m" \
-  gp="git push" \
-  gpf="git push -f" \
-  gdf="git diff" \
-  gsu="git stash -u" \
-  gsp="git stash pop" \
-  gsc="git stash clear" \
-  gsl="git stash list" \
-  gss="git stash show" \
-  gca="git commit --amend" \
-  gcan="git commit --amend --no-edit" \
-  gdt="git difftool -y" \
-  gwa="git worktree add" \
-  gcob="git checkout -b" \
-  lzg="lazygit" \
+    glo="git log --format=\"format:%C(magenta)%h%C(green)%d %C(reset)%s %C(cyan)(%cr) %C(blue)%an\"" \
+    gb="git branch" \
+    gcm="git commit -m" \
+    gp="git push" \
+    gpf="git push -f" \
+    gdf="git diff" \
+    gsu="git stash -u" \
+    gsp="git stash pop" \
+    gsc="git stash clear" \
+    gsl="git stash list" \
+    gss="git stash show" \
+    gca="git commit --amend" \
+    gcan="git commit --amend --no-edit" \
+    gdt="git difftool -y" \
+    gwa="git worktree add" \
+    gcob="git checkout -b" \
+    lzg="lazygit"
 
 # additional aliases
 alias \
-  e="$EDITOR" \
-  conf="cd ~/.config" \
-  cr="cargo run" \
-  rsc="rustc" \
-  dbe="db-env" \
-  ls='eza --icons=always --no-user --no-time --no-filesize' \
-  lsn='command ls --color=always' \
-  sv='source ./venv/bin/activate' \
-  cv='python3 -m venv venv' \
-  pir='pip install -r requirements.txt' \
-  nn='nano' \
-  v='nvim' \
-  vi='nvim' \
-  vii='nvim' \
-  iv='nvim' \
-  ivi='nvim' \
-  ivii='nvim' \
-  nv='nvim' \
-  nvi='nvim' \
-  tree='tree --gitignore' \
-  dev="cd ~/.development" \
-  dotfiles="cd ~/.dotfiles" \
-  python='python3' \
-  mem="neofetch memory" \
-  cpu="neofetch cpu --cpu_temp" \
-  disk="neofetch disk" \
-  batt="neofetch battery" \
-  uptime="neofetch uptime" \
-  ndoe="node" \
+    e="$EDITOR" \
+    conf="cd ~/.config" \
+    cr="cargo run" \
+    rsc="rustc" \
+    dbe="db-env" \
+    ls='eza --icons=always --no-user --no-time --no-filesize' \
+    lsn='command ls --color=always' \
+    sv='source ./.venv/bin/activate' \
+    cv='python3 -m venv venv' \
+    pir='pip install -r requirements.txt' \
+    nn='nano' \
+    v='nvim' \
+    vi='nvim' \
+    vii='nvim' \
+    iv='nvim' \
+    ivi='nvim' \
+    ivii='nvim' \
+    nv='nvim' \
+    nvi='nvim' \
+    tree='tree --gitignore' \
+    dev="cd ~/.development" \
+    dotfiles="cd ~/.dotfiles" \
+    python='python3' \
+    mem="neofetch memory" \
+    cpu="neofetch cpu --cpu_temp" \
+    disk="neofetch disk" \
+    batt="neofetch battery" \
+    uptime="neofetch uptime" \
+    ndoe="node"
 
 # personal aliases
 alias \
-  ncp="nvim-cp" \
-  nwk="nvim-work" \
-  suspend="systemctl suspend" \
-  restart="systemctl reboot" \
-  i3lock="i3lock -c 1F1F28" \
-  reckey="screenkey -s small -t 0.25 --opacity 0.5 -p fixed -g 24%x7%-2%-10% &" \
-  sb="setbg" \
+    ncp="nvim-cp" \
+    nwk="nvim-work" \
+    powc="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep 'energy-rate'" \
+    suspend="systemctl suspend" \
+    restart="systemctl reboot" \
+    poweroff="systemctl poweroff" \
+    shutdown="systemctl poweroff" \
+    i3lock="i3lock -c 1F1F28" \
+    reckey="screenkey -s small -t 0.25 --opacity 0.5 -p fixed -g 24%x7%-2%-10% &" \
+    sb="setbg"
