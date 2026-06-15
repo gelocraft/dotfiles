@@ -1,1 +1,3 @@
-[ -n $(command -v xwallpaper) ] && xwallpaper --zoom ~/.personal/wallpaper/$(command ls ~/.personal/wallpaper | shuf -n 1)
+#!/bin/sh
+
+[ -n "$(command -v xwallpaper)" ] && xwallpaper --zoom ~/.personal/wallpaper/"$(command ls ~/.personal/wallpaper | shuf -n 1)"
