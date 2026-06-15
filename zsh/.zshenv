@@ -26,5 +26,6 @@ FZF_DEFAULT_OPTS_FILE="$HOME/.dotfiles/fzf/.fzfrc"
 [ -d /usr/local/go/bin ] && PATH=$PATH:/usr/local/go/bin
 [ -d ~/.local/bin ] && PATH=$PATH:$HOME/.local/bin
 [ -d ~/.dotfiles/handy-scripts/bin ] && PATH=$PATH:$HOME/.dotfiles/handy-scripts/bin
+[ -f ~/.zpersonal ] && . ~/.zpersonal
 
 export PATH SHELL EDITOR GOPATH GOBIN KEYTIMEOUT FZF_DEFAULT_OPTS_FILE STARSHIP_CONFIG XDG_CONFIG_HOME XDG_DATA_HOME NVIM_APPNAME

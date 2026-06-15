@@ -14,6 +14,7 @@ bindkey -s ^f "find-files; clear\n"
 bindkey -s ^p "tmux-sessionizer; clear\n"
 
 # Basic auto/tab complete:
+fpath=("$HOME/.zsh/completions" $fpath)
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
@@ -79,5 +80,18 @@ compdef _dotnet_zsh_complete dotnet
 # starship configuration
 [ -n "$(command -v starship)" ] && eval "$(starship init zsh)"
 
+# podman completion
+[ -n "$(command -v podman)" ] && eval "$(podman completion zsh)"
+
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -d /usr/share/zsh-autosuggestions ] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -d /usr/share/zsh-syntax-highlighting ] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# opencode
+export PATH=/home/gelocraft/.opencode/bin:$PATH
